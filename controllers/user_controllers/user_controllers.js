@@ -2,21 +2,6 @@ const { PrismaClient } = require("@prisma/client");
 const express = require("express");
 const prisma = new PrismaClient();
 
-//create user
-async function createUser(req,res){
-    const{username,email,password} = req.body
-    try{
-        const newUser = await prisma.user.create({data:{
-            username:username,
-            email:email,
-            password:password
-        }})
-        return res.status(200).json("user created successfully")
-    }
-    catch(error){
-        return res.status(409).json("username or email already exists")
-    }   
-}
 //get user
 async function getUser(req,res){
     const id = req.id
@@ -64,7 +49,6 @@ async function deleteUser(req,res){
 }
 
 module.exports = {
-    createUser,
     getUser,
     updateUser,
     deleteUser
