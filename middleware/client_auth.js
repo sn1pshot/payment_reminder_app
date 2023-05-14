@@ -1,7 +1,7 @@
 require('dotenv').config()
 const jwt = require('jsonwebtoken');
 
-exports.verifyUserToken = (req,res,next) => {
+exports.verifyClientToken = (req,res,next) => {
   const token = req.cookies.access_token;
   console.log(req.cookies);
     if (token==null) {
@@ -14,8 +14,8 @@ exports.verifyUserToken = (req,res,next) => {
             return res.sendStatus(403);
         }
 
-        req.id=decoded.id;
-        req.email=decoded.email;
+        req.client_id=decoded.client_id;
+        req.client_email=decoded.client_email;
 
         next();
     })

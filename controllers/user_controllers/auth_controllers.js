@@ -47,7 +47,3 @@ async function login(req,res){
     }
 }
 
-async function logout(req,res){
-    
-}
-
