@@ -45,5 +45,11 @@ async function login(req,res){
         console.log(error);
         res.status(404).json("user not found");
     }
+    
+}
+
+module.exports={
+    signup,
+    login
 }
 
